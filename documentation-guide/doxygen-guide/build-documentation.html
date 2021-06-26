@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Use Read the Docs Theme in Sphinx &mdash; ICHIRO ITS Guide  documentation</title>
+  <title>Build Documentations Using Doxygen &mdash; ICHIRO ITS Guide  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Enable Markdown in Sphinx" href="use-markdown.html" />
-    <link rel="prev" title="Build Documentations Using Sphinx" href="build-documentation.html" /> 
+    <link rel="next" title="Manage Debian Packages Using APT" href="../../debian-package-guide/apt-guide.html" />
+    <link rel="prev" title="Setup a Doxygen Project" href="setup-doxygen.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,18 +89,15 @@
             
               <p class="caption"><span class="caption-text">Documentation Guide</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../sphinx-guide.html">Generate Documentations Using Sphinx</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="setup-sphinx.html">Setup a Sphinx Project</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-documentation.html">Build Documentations Using Sphinx</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Use Read the Docs Theme in Sphinx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#theme-installation">Theme Installation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configure-theme-in-a-sphinx-project">Configure Theme in a Sphinx Project</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sphinx-guide.html">Generate Documentations Using Sphinx</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../doxygen-guide.html">Generate C++ Documentations Using Doxygen</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup-doxygen.html">Setup a Doxygen Project</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Build Documentations Using Doxygen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#build-documentations-from-a-doxygen-project">Build Documentations From a Doxygen Project</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="use-markdown.html">Enable Markdown in Sphinx</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../doxygen-guide.html">Generate C++ Documentations Using Doxygen</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Debian Package Guide</span></p>
 <ul>
@@ -185,15 +182,15 @@
     
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../sphinx-guide.html">Generate Documentations Using Sphinx</a> &raquo;</li>
+          <li><a href="../doxygen-guide.html">Generate C++ Documentations Using Doxygen</a> &raquo;</li>
         
-      <li>Use Read the Docs Theme in Sphinx</li>
+      <li>Build Documentations Using Doxygen</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../../_sources/documentation-guide/sphinx-guide/use-rtd-theme.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../_sources/documentation-guide/doxygen-guide/build-documentation.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -206,33 +203,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="use-read-the-docs-theme-in-sphinx">
-<h1>Use Read the Docs Theme in Sphinx<a class="headerlink" href="#use-read-the-docs-theme-in-sphinx" title="Permalink to this headline">¶</a></h1>
-<p>This section will explain a guide on setting up <a class="reference external" href="https://sphinx-rtd-theme.readthedocs.io/en/stable/">Read the Docs Sphinx theme</a> in a <a class="reference internal" href="../sphinx-guide.html#sphinx-guide"><span class="std std-ref">Sphinx</span></a> project.</p>
+  <div class="section" id="build-documentations-using-doxygen">
+<h1>Build Documentations Using Doxygen<a class="headerlink" href="#build-documentations-using-doxygen" title="Permalink to this headline">¶</a></h1>
+<p>This section will explain a guide on building documentations from a <a class="reference internal" href="../doxygen-guide.html#doxygen-guide"><span class="std std-ref">Doxygen</span></a> project.</p>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference external" href="https://sphinx-rtd-theme.readthedocs.io/en/stable/">Read the Docs Sphinx Theme Installation</a> on the official Read the Docs Sphinx theme documentation.</p>
+<p><a class="reference external" href="https://www.doxygen.nl/manual/starting.html">Getting started on Doxygen</a> on the official Doxygen documentation.</p>
 </div>
-<div class="section" id="theme-installation">
-<h2>Theme Installation<a class="headerlink" href="#theme-installation" title="Permalink to this headline">¶</a></h2>
-<p>Read the Docs Sphinx theme is available on <a class="reference internal" href="../../python-guide/pip-guide.html#pip-guide"><span class="std std-ref">pip</span></a> as <code class="code docutils literal notranslate"><span class="pre">sphinx-rtd-theme</span></code> package.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -U sphinx-rtd-theme
+<div class="section" id="build-documentations-from-a-doxygen-project">
+<h2>Build Documentations From a Doxygen Project<a class="headerlink" href="#build-documentations-from-a-doxygen-project" title="Permalink to this headline">¶</a></h2>
+<p>Run <code class="code docutils literal notranslate"><span class="pre">doxygen</span></code> command to build documentations from a Doxygen project.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ doxygen
 </pre></div>
 </div>
-</div>
-<div class="section" id="configure-theme-in-a-sphinx-project">
-<h2>Configure Theme in a Sphinx Project<a class="headerlink" href="#configure-theme-in-a-sphinx-project" title="Permalink to this headline">¶</a></h2>
-<p>Modify <code class="code docutils literal notranslate"><span class="pre">conf.py</span></code> of the project by adding <code class="code docutils literal notranslate"><span class="pre">sphinx-rtd-theme</span></code> in the <code class="code docutils literal notranslate"><span class="pre">extensions</span></code> list and setting <code class="code docutils literal notranslate"><span class="pre">html_theme</span></code> into <code class="code docutils literal notranslate"><span class="pre">sphinx_rtd_theme</span></code>.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx_rtd_theme</span>
-
-<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="o">...</span>
-  <span class="s2">&quot;sphinx_rtd_theme&quot;</span><span class="p">,</span>
-<span class="p">]</span>
-
-<span class="n">html_theme</span> <span class="o">=</span> <span class="s2">&quot;sphinx_rtd_theme&quot;</span>
-</pre></div>
-</div>
+<p>Documentation results could be in HTML, LaTeX, RTF, or XML depend on the configuration file (<code class="code docutils literal notranslate"><span class="pre">Doxyfile</span></code>) of the Doxygen project.</p>
 </div>
 </div>
 
@@ -242,8 +226,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="use-markdown.html" class="btn btn-neutral float-right" title="Enable Markdown in Sphinx" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="build-documentation.html" class="btn btn-neutral float-left" title="Build Documentations Using Sphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../debian-package-guide/apt-guide.html" class="btn btn-neutral float-right" title="Manage Debian Packages Using APT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="setup-doxygen.html" class="btn btn-neutral float-left" title="Setup a Doxygen Project" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
