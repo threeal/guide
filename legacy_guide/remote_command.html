@@ -1,0 +1,363 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Remote Command &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Remote Setup" href="remote_setup.html" />
+    <link rel="prev" title="Properly Using Git" href="properly_using_git.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Remote Command</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#robot-ip">Robot IP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remote-robot">Remote Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mount-robot">Mount Robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#program-command">Program Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#screen-command">Screen Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#git-command">Git Command</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Remote Command</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/remote_command.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="remote-command">
+<h1>Remote Command<a class="headerlink" href="#remote-command" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="robot-ip">
+<h2>Robot IP<a class="headerlink" href="#robot-ip" title="Permalink to this headline">¶</a></h2>
+<p>Add this env variables to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ITHAARO_NAME</span><span class="o">=</span><span class="s1">&#39;ithaaro&#39;</span>
+<span class="nb">export</span> <span class="nv">ITHAARO_IP</span><span class="o">=</span><span class="s1">&#39;192.168.123.1&#39;</span>
+
+<span class="nb">export</span> <span class="nv">ARATA_NAME</span><span class="o">=</span><span class="s1">&#39;arata&#39;</span>
+<span class="nb">export</span> <span class="nv">ARATA_IP</span><span class="o">=</span><span class="s1">&#39;192.168.123.2&#39;</span>
+
+<span class="nb">export</span> <span class="nv">UMARU_NAME</span><span class="o">=</span><span class="s1">&#39;umaru&#39;</span>
+<span class="nb">export</span> <span class="nv">UMARU_IP</span><span class="o">=</span><span class="s1">&#39;192.168.123.3&#39;</span>
+
+<span class="nb">export</span> <span class="nv">TOMO_NAME</span><span class="o">=</span><span class="s1">&#39;tomo&#39;</span>
+<span class="nb">export</span> <span class="nv">TOMO_IP</span><span class="o">=</span><span class="s1">&#39;192.168.123.4&#39;</span>
+
+// For Default Robot
+<span class="nb">export</span> <span class="nv">ROBOT_NAME</span><span class="o">=</span><span class="nv">$ARATA_NAME</span>
+<span class="nb">export</span> <span class="nv">ROBOT_IP</span><span class="o">=</span><span class="nv">$ARATA_IP</span>
+</pre></div>
+</div>
+<p>Set default robot to use with (ex: UMARU)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">ROBOT_NAME</span><span class="o">=</span><span class="nv">$UMARU_NAME</span>
+$ <span class="nb">export</span> <span class="nv">ROBOT_IP</span><span class="o">=</span><span class="nv">$UMARU_IP</span>
+</pre></div>
+</div>
+<p>For wifi connection, set IP manually with</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">ROBOT_IP</span><span class="o">=</span>&lt;wifi_ip&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="remote-robot">
+<h2>Remote Robot<a class="headerlink" href="#remote-robot" title="Permalink to this headline">¶</a></h2>
+<p>Add this aliases to your <code class="docutils literal notranslate"><span class="pre">~/.bash_aliases</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">robotremote</span><span class="o">=</span><span class="s1">&#39;ssh -X &#39;</span><span class="nv">$ROBOT_NAME</span><span class="s1">&#39;@&#39;</span><span class="nv">$ROBOT_IP</span>
+<span class="nb">alias</span> <span class="nv">ithaaroremote</span><span class="o">=</span><span class="s1">&#39;ssh -X &#39;</span><span class="nv">$ITHAARO_NAME</span><span class="s1">&#39;@&#39;</span><span class="nv">$ITHAARO_IP</span>
+<span class="nb">alias</span> <span class="nv">arataremote</span><span class="o">=</span><span class="s1">&#39;ssh -X &#39;</span><span class="nv">$ARATA_NAME</span><span class="s1">&#39;@&#39;</span><span class="nv">$ARATA_IP</span>
+<span class="nb">alias</span> <span class="nv">umaruremote</span><span class="o">=</span><span class="s1">&#39;ssh -X &#39;</span><span class="nv">$UMARU_NAME</span><span class="s1">&#39;@&#39;</span><span class="nv">$UMARU_IP</span>
+<span class="nb">alias</span> <span class="nv">tomoremote</span><span class="o">=</span><span class="s1">&#39;ssh -X &#39;</span><span class="nv">$TOMO_NAME</span><span class="s1">&#39;@&#39;</span><span class="nv">$TOMO_IP</span>
+</pre></div>
+</div>
+<p>To remote without login, use ssh-keygen (enter empty passphrase)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ssh-keygen -t rsa
+$ ssh-copy-id -i ~/.ssh/id_rsa <span class="nv">$ROBOT_NAME</span><span class="s1">&#39;@&#39;</span><span class="nv">$ROBOT_IP</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mount-robot">
+<h2>Mount Robot<a class="headerlink" href="#mount-robot" title="Permalink to this headline">¶</a></h2>
+<p>Add this env variables to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ROBOT_MOUNT_DIR</span><span class="o">=</span><span class="s1">&#39;/home/&#39;</span><span class="nv">$USER</span><span class="s1">&#39;/Share/&#39;</span>
+</pre></div>
+</div>
+<p>Add this aliases to your <code class="docutils literal notranslate"><span class="pre">~/.bash_aliases</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">robotmount</span><span class="o">=</span><span class="s1">&#39;mkdir -p &#39;</span><span class="nv">$ROBOT_MOUNT_DIR</span><span class="s1">&#39;&#39;</span><span class="nv">$ROBOT_NAME</span><span class="s1">&#39; &amp; sshfs &#39;</span><span class="nv">$ROBOT_NAME</span><span class="s1">&#39;@&#39;</span><span class="nv">$ROBOT_IP</span><span class="s1">&#39;:/home/&#39;</span><span class="nv">$ROBOT_NAME</span><span class="s1">&#39; &#39;</span><span class="nv">$ROBOT_MOUNT_DIR</span><span class="s1">&#39;&#39;</span><span class="nv">$ROBOT_NAME</span>
+<span class="nb">alias</span> <span class="nv">robotumount</span><span class="o">=</span><span class="s1">&#39;umount -l &#39;</span><span class="nv">$ROBOT_MOUNT_DIR</span><span class="s1">&#39;&#39;</span><span class="nv">$ROBOT_NAME</span>
+<span class="nb">alias</span> <span class="nv">robotcd</span><span class="o">=</span><span class="s1">&#39;cd &#39;</span><span class="nv">$ROBOT_MOUNT_DIR</span><span class="s1">&#39;&#39;</span><span class="nv">$ROBOT_NAME</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">robotmount</span></code> to mount robot directory</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">robotumount</span></code> to unmount robot directory</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">robotcd</span></code> to change directory to robot directory</p></li>
+</ul>
+</div>
+<div class="section" id="program-command">
+<h2>Program Command<a class="headerlink" href="#program-command" title="Permalink to this headline">¶</a></h2>
+<p>Add this aliases to your ~/.bash_aliases</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">run</span><span class="o">=</span><span class="s1">&#39;./run&#39;</span>
+<span class="nb">alias</span> <span class="nv">runnull</span><span class="o">=</span><span class="s1">&#39;./run &gt;/dev/null 2&gt;&amp;1&#39;</span>
+<span class="nb">alias</span> <span class="nv">runlog</span><span class="o">=</span><span class="s1">&#39;mkdir -p log &amp; ./run &gt; ./log/$(date +%Y-%m-%d_%H:%M).log&#39;</span>
+<span class="nb">alias</span> <span class="nv">runkill</span><span class="o">=</span><span class="s1">&#39;sudo killall run&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">run</span></code> to run program using root</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">runnull</span></code> to run program without logging to terminal</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">runlog</span></code> to run program with logging to <code class="docutils literal notranslate"><span class="pre">./log/&lt;date&gt;.log</span></code></p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">runkill</span></code> to kill run program</p></li>
+</ul>
+</div>
+<div class="section" id="screen-command">
+<h2>Screen Command<a class="headerlink" href="#screen-command" title="Permalink to this headline">¶</a></h2>
+<p>Add this aliases to your ~/.bash_aliases</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">alias</span> <span class="nv">screenstart</span><span class="o">=</span><span class="s1">&#39;screen -S run&#39;</span>
+<span class="nb">alias</span> <span class="nv">screenresume</span><span class="o">=</span><span class="s1">&#39;screen -d -R run&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">screenstart</span></code> to start screen</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">screenresume</span></code> to resume screen</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">a</span></code> <code class="docutils literal notranslate"><span class="pre">ctrl</span> <span class="pre">+</span> <span class="pre">d</span></code> to detach screen</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">exit</span></code> within screen to terminate screen</p></li>
+</ul>
+</div>
+<div class="section" id="git-command">
+<h2>Git Command<a class="headerlink" href="#git-command" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clone</span> <span class="pre">&lt;repository_url&gt;</span></code> to clone repository to local</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">add</span> <span class="pre">&lt;file&gt;</span></code> to track a file</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">add</span> <span class="pre">-A</span></code> to track all available files</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span> <span class="pre">&lt;file&gt;</span></code> to commit a file</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span></code> to commit all available files</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-a</span> <span class="pre">-m</span> <span class="pre">&lt;description&gt;</span></code> to commit all available files with specific description</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">status</span></code> to view git status</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">log</span></code> to view git commit log</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">branch</span></code> to view git branches</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">&lt;branch&gt;</span></code> to switch branch</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;new_branch&gt;</span></code> to switch to new branch</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">branch</span> <span class="pre">-D</span> <span class="pre">&lt;branch&gt;</span></code> to delete a branch</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="remote_setup.html" class="btn btn-neutral float-right" title="Remote Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="properly_using_git.html" class="btn btn-neutral float-left" title="Properly Using Git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

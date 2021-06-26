@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Manage Python Packages Using pip &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Assign a Static USB Port" href="../legacy_guide/assign_static_usb_port.html" />
+    <link rel="prev" title="Write Programs using Python" href="python-guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../legacy_guide/zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Manage Python Packages Using pip</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/python-guide/pip-guide.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="manage-python-packages-using-pip">
+<span id="pip-guide"></span><h1>Manage Python Packages Using pip<a class="headerlink" href="#manage-python-packages-using-pip" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://pip.pypa.io/en/stable/">pip</a> is a package-management system written in <a class="reference internal" href="python-guide.html#python-guide"><span class="std std-ref">Python</span></a> used to install and manage software packages.
+It connects to an online repository of public packages, called the <a class="reference external" href="https://pypi.org/">Python Package Index</a> (PyPI).</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../legacy_guide/assign_static_usb_port.html" class="btn btn-neutral float-right" title="Assign a Static USB Port" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="python-guide.html" class="btn btn-neutral float-left" title="Write Programs using Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

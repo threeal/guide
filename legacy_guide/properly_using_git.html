@@ -1,0 +1,350 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Properly Using Git &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Remote Command" href="remote_command.html" />
+    <link rel="prev" title="Linux Setup" href="linux_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Properly Using Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clone-from-repository">Clone from Repository</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-for-update">Check for Update</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#make-changes">Make Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-changes">Add Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commit-changes">Commit Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#push-changes">Push Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#merge-conflict">Merge Conflict</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reset-project">Reset Project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Properly Using Git</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/properly_using_git.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="properly-using-git">
+<h1>Properly Using Git<a class="headerlink" href="#properly-using-git" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="clone-from-repository">
+<h2>Clone from Repository<a class="headerlink" href="#clone-from-repository" title="Permalink to this headline">¶</a></h2>
+<p>Either use HTTPS clone (copy/download) project from repository</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone https://gitlab.com/ICHIRO-ITS/readme
+</pre></div>
+</div>
+<p>Alternatively you could use SSH, so username and password won’t be required everytime you push</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git clone git@gitlab.com:ICHIRO-ITS/readme.git
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-for-update">
+<h2>Check for Update<a class="headerlink" href="#check-for-update" title="Permalink to this headline">¶</a></h2>
+<p>Always update your project from origin (default online repository name). if you have unfinished work, and don’t want to update yet, you may skip this part.
+Make sure you are on master branch (default branch)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git pull origin master
+</pre></div>
+</div>
+<p>Alternatively you may pull from other branch</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git pull origin &lt;other_branch&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="make-changes">
+<h2>Make Changes<a class="headerlink" href="#make-changes" title="Permalink to this headline">¶</a></h2>
+<p>You could diretly make changes on master branch, or alternatively to avoid conflict, you could switch to temp branch before make any changes.
+Use branch name that reasemble changes you gonna make, ex: use branch “walking” if you want to modify walking mechanic of the robot, or branch “object_detection” if you want to modify object detection system of the robot</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git checkout -b &lt;temp_branch_name&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="add-changes">
+<h2>Add Changes<a class="headerlink" href="#add-changes" title="Permalink to this headline">¶</a></h2>
+<p>After make changes, check again changes you have done using</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git status
+</pre></div>
+</div>
+<p>Read the output, if there’s is red mark, add changes using</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git add &lt;file_name&gt;
+</pre></div>
+</div>
+<p>Alternatively you could add all changes using (make sure you are on root of this project)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git add -A
+</pre></div>
+</div>
+</div>
+<div class="section" id="commit-changes">
+<h2>Commit Changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline">¶</a></h2>
+<p>After all files marked green in <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">status</span></code>, save all changes as commit using</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git commit -a
+</pre></div>
+</div>
+<p>Alternatively you may directly write message using</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git commit -a -m <span class="s2">&quot;&lt;commit_message&gt;&quot;</span>
+</pre></div>
+</div>
+<p>Use proper commit message that show changes you have done, ex: “Add LBP for ball detection”, “Fix initial position”, etc.</p>
+</div>
+<div class="section" id="push-changes">
+<h2>Push Changes<a class="headerlink" href="#push-changes" title="Permalink to this headline">¶</a></h2>
+<p>After several commit, and you have finished your work, always push (upload) your changes to origin using
+Make sure you are on master branch (default branch)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git push origin master
+</pre></div>
+</div>
+<p>If you are modifying from temp branch, switch it to master, update master, then merge change from your temp branch to master</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git checkout master
+$ git pull origin master
+$ git merge &lt;temp_branch&gt;
+$ git push origin master
+</pre></div>
+</div>
+<p>And don’t forget to delete your temp branch if you won’t using it again
+if you using temp branch, don’t forget to switch to master branch, and merge your temp branch before push it to origin</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ git branch -D &lt;temp_branch&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="merge-conflict">
+<h2>Merge Conflict<a class="headerlink" href="#merge-conflict" title="Permalink to this headline">¶</a></h2>
+<p>If there’s unresolved merge conflict (shown in <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">status</span></code>), you should resolve it as follow</p>
+<ul class="simple">
+<li><p>Navigate to corresponding file and edit it using your favorite text editor (ex: vscode)</p></li>
+<li><p>Either you accept incoming changes or keep your local changes (“as shown with &lt;&lt;&lt; and &gt;&gt;&gt;”)</p></li>
+<li><p>check again using <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">status</span></code>, save changes if there’s no unresolved merge conflict, or repeat if there’s.</p></li>
+</ul>
+</div>
+<div class="section" id="reset-project">
+<h2>Reset Project<a class="headerlink" href="#reset-project" title="Permalink to this headline">¶</a></h2>
+<p>If you have done wrong things and the only solution is reset project, you may use following command</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">reset</span> <span class="pre">HEAD</span> <span class="pre">--hard</span></code>, to reset changes to the latest commit</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">reset</span> <span class="pre">&lt;commit_code&gt;</span> <span class="pre">--hard</span></code>, to reset to specific commit (use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">log</span></code> to view all commit and its code)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">git</span> <span class="pre">clean</span> <span class="pre">-fd</span></code>, to clean unnecessary files and folders</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="remote_command.html" class="btn btn-neutral float-right" title="Remote Command" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="linux_setup.html" class="btn btn-neutral float-left" title="Linux Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

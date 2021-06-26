@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Setup Zsh &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="YOLO Setup" href="yolo_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#setup-oh-my-zsh">Setup Oh My Zsh</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-theme-optional">Change Theme <em>(Optional)</em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-extra-plugins-optional">Add Extra Plugins <em>(Optional)</em></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#extract-plugin">Extract Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#syntax-highlighting-plugin">Syntax Highlighting Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#auto-suggestions-plugin">Auto Suggestions Plugin</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#reload-shell">Reload Shell</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Setup Zsh</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/zsh_setup.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="setup-zsh">
+<h1>Setup Zsh<a class="headerlink" href="#setup-zsh" title="Permalink to this headline">¶</a></h1>
+<ul>
+<li><p>Install <strong>Zsh</strong> using <code class="docutils literal notranslate"><span class="pre">apt</span></code> command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install zsh
+</pre></div>
+</div>
+</li>
+<li><p>Replace default bash with <strong>Zsh</strong>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ chsh -s /usr/bin/zsh
+</pre></div>
+</div>
+</li>
+<li><p>Open a new terminal, you will be prompted to configure <strong>Zsh</strong>.
+type <code class="docutils literal notranslate"><span class="pre">2</span></code> to choose recommended option, else you will need to configure <strong>Zsh</strong> by yourself.</p></li>
+</ul>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="setup-oh-my-zsh">
+<h1>Setup Oh My Zsh<a class="headerlink" href="#setup-oh-my-zsh" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Run <strong>Oh My Zsh</strong> installer script with the following command</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sh -c <span class="s2">&quot;</span><span class="k">$(</span>wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -<span class="k">)</span><span class="s2">&quot;</span>
+~$ cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+</pre></div>
+</div>
+</li>
+<li><p>When asked to change default shell to zsh, choose <code class="docutils literal notranslate"><span class="pre">Y</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="change-theme-optional">
+<h2>Change Theme <em>(Optional)</em><a class="headerlink" href="#change-theme-optional" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>, modify the <code class="docutils literal notranslate"><span class="pre">ZSH_THEME</span></code> parameter with the desired theme <em>(it is recommended to use <strong>agnoster</strong> theme)</em>.
+For full list of <strong>Zsh</strong> theme, check <a class="reference external" href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes">here</a>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>  ...
+  <span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&quot;agnoster&quot;</span>
+  ...
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Most <strong>Zsh</strong> theme display uncommon characters.
+It is recommended to use a font that supports those characters in the terminal <em>(ex: <a class="reference external" href="https://pcaro.es/p/hermit/">hermit font</a>)</em>.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="add-extra-plugins-optional">
+<h2>Add Extra Plugins <em>(Optional)</em><a class="headerlink" href="#add-extra-plugins-optional" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="extract-plugin">
+<h3>Extract Plugin<a class="headerlink" href="#extract-plugin" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>, add <code class="docutils literal notranslate"><span class="pre">extract</span></code> to <code class="docutils literal notranslate"><span class="pre">plugins</span></code> parameter <em>(separate each plugin with space)</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="syntax-highlighting-plugin">
+<h3>Syntax Highlighting Plugin<a class="headerlink" href="#syntax-highlighting-plugin" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Clone the <strong>Zsh Syntax Highlighting</strong> plugin to the <strong>Zsh</strong> plugin directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-syntax-highlighting
+</pre></div>
+</div>
+</li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>, add <code class="docutils literal notranslate"><span class="pre">zsh-syntax-highlighting</span></code> to <code class="docutils literal notranslate"><span class="pre">plugins</span></code> parameter <em>(separate each plugin with space)</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="auto-suggestions-plugin">
+<h3>Auto Suggestions Plugin<a class="headerlink" href="#auto-suggestions-plugin" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Clone the <strong>Zsh Auto Suggestions</strong> plugin to the <strong>Zsh</strong> plugin directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ git clone https://github.com/zsh-users/zsh-autosuggestions <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-autosuggestions
+</pre></div>
+</div>
+</li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code>, add <code class="docutils literal notranslate"><span class="pre">zsh-autosuggestions</span></code> to <code class="docutils literal notranslate"><span class="pre">plugins</span></code> parameter <em>(separate each plugins with space)</em>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="reload-shell">
+<h2>Reload Shell<a class="headerlink" href="#reload-shell" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Start a new terminal or execute this command for the changes to take effect.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ <span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="yolo_setup.html" class="btn btn-neutral float-left" title="YOLO Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

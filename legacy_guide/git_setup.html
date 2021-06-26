@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Setup Git &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Jetson TX2 Flash" href="jetson_tx2_flash.html" />
+    <link rel="prev" title="C++ Coding Standard" href="cpp_coding_standard.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup Git</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-global-user">Configure Global User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-ssh-key">Configure SSh Key</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Setup Git</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/git_setup.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="setup-git">
+<h1>Setup Git<a class="headerlink" href="#setup-git" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Install <strong>Git</strong> using <code class="docutils literal notranslate"><span class="pre">apt</span></code> command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install git
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="configure-global-user">
+<h2>Configure Global User<a class="headerlink" href="#configure-global-user" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Configure global user name and email</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ git config --global user.name <span class="s1">&#39;ICHIRO ITS&#39;</span>
+~$ git config --global user.email <span class="s2">&quot;ichiro.its@gmail.com&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="configure-ssh-key">
+<h2>Configure SSh Key<a class="headerlink" href="#configure-ssh-key" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Generate public SSh key with empty passphrase <em>(just press <code class="docutils literal notranslate"><span class="pre">Enter</span></code> when prompted to type a passphrase)</em></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ ssh-keygen -t rsa
+</pre></div>
+</div>
+</li>
+<li><p>Open <a class="reference external" href="https://gitlab.com/users/sign_in">GitLab.com</a></p></li>
+<li><p>Sign In as <code class="docutils literal notranslate"><span class="pre">ICHIRO-ITS-Admin</span></code></p></li>
+<li><p>Open setting for <a class="reference external" href="https://gitlab.com/profile/keys">SSH Keys</a></p></li>
+<li><p>Add Key as in <code class="docutils literal notranslate"><span class="pre">~/.ssh/id_rsa.pub</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ cat ~/.ssh/id_rsa.pub
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="jetson_tx2_flash.html" class="btn btn-neutral float-right" title="Jetson TX2 Flash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cpp_coding_standard.html" class="btn btn-neutral float-left" title="C++ Coding Standard" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

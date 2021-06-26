@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Assign a Static USB Port &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C++ Coding Standard" href="cpp_coding_standard.html" />
+    <link rel="prev" title="Manage Python Packages Using pip" href="../python-guide/pip-guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Assign a Static USB Port</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/assign_static_usb_port.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="assign-a-static-usb-port">
+<h1>Assign a Static USB Port<a class="headerlink" href="#assign-a-static-usb-port" title="Permalink to this headline">¶</a></h1>
+<p>This part is a procedure to solve the problem where the USB port of devices on a robot not properly connected with the program, especially ROS 2 program (framework). So, assign a static USB port to create a symbolic link for the USB device on robot is its solution. The devices port should be assigned one by one, to do that follow these steps:</p>
+<ul>
+<li><p>Unplug all of the devices from robot first</p></li>
+<li><p>Plug only a device which wants to assign</p></li>
+<li><p>Find port where the device plugged in using (usually on <code class="docutils literal notranslate"><span class="pre">/dev/ttyUSBx</span></code>):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ls /dev/
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">x</span></code> is a number that matches with the device port (ex. <code class="docutils literal notranslate"><span class="pre">/dev/ttyUSB0</span></code>).</p>
+</li>
+<li><p>List USB attributes for the device:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ udevadm info --name<span class="o">=</span>/dev/ttyUSBx --attribute-walk
+</pre></div>
+</div>
+</li>
+<li><p>In the list, look idVendor. Example:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>  ...
+  ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&quot;1d6b&quot;</span>
+  ...
+</pre></div>
+</div>
+</li>
+<li><p>Open (if there is nothing, just create) a file <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/99-usb-serial.rules</span></code>, and append this following line in that rule file:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyUSB0&quot;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&quot;1d6b&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;cm740&quot;</span>
+</pre></div>
+</div>
+<p>set the kernel (i.e <code class="docutils literal notranslate"><span class="pre">ttyUSB0</span></code>), idVendor of the device (i.e <code class="docutils literal notranslate"><span class="pre">1d6b</span></code>), and the name of the symbolic link (i.e <code class="docutils literal notranslate"><span class="pre">cm740</span></code>) which will be an assigned port name for the device (i.e CM740 device).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If on the list of device attribute there is nothing idVendor such as above, the static assignment can be make based on the USB kernel Id (i.e <code class="docutils literal notranslate"><span class="pre">KERNELS==&quot;1-4:1.0&quot;</span></code>).
+Then, in a file <code class="docutils literal notranslate"><span class="pre">/etc/udev/rules.d/99-usb-serial.rules</span></code>, append this following statement <code class="docutils literal notranslate"><span class="pre">KERNEL==&quot;ttyUSB0&quot;,</span> <span class="pre">KERNELS==&quot;1-4:1.0&quot;,</span> <span class="pre">SYMLINK+=&quot;cm740&quot;</span></code> with the properly USB kernel of device</p>
+</div>
+</li>
+<li><p>Reload the udevadm rules:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ udevadm control --reload-rules
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="cpp_coding_standard.html" class="btn btn-neutral float-right" title="C++ Coding Standard" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../python-guide/pip-guide.html" class="btn btn-neutral float-left" title="Manage Python Packages Using pip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

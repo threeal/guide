@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>ROS Setup &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Setup OpenCV" href="setup_opencv.html" />
+    <link rel="prev" title="ROS 2 Setup" href="ros2_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ROS Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-requirements">Pre Requirements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-apt-repository">Configure APT Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-process">Setup Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ros-installation">ROS Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-rosdep">Initialize Rosdep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#environment-setup">Environment Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-dependencies-for-building-packages">Setup Dependencies for Building Packages</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ROS Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/ros_setup.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="ros-setup">
+<h1>ROS Setup<a class="headerlink" href="#ros-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-requirements">
+<h2>Pre Requirements<a class="headerlink" href="#pre-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-apt-repository">
+<h3>Configure APT Repository<a class="headerlink" href="#configure-apt-repository" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Add <strong>ROS</strong>’s sources list.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add <strong>ROS</strong>’s <strong>APT</strong> keys.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ curl -sSL <span class="s1">&#39;http://keyserver.ubuntu.com/pks/lookup?op=get&amp;search=0xC1CF6E31E6BADE8868B172B4F42ED6FBAB17C654&#39;</span> <span class="p">|</span> sudo apt-key add -
+</pre></div>
+</div>
+</li>
+<li><p>Update the <strong>APT</strong> repository using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code> command.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="setup-process">
+<h2>Setup Process<a class="headerlink" href="#setup-process" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ros-installation">
+<h3>ROS Installation<a class="headerlink" href="#ros-installation" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install <strong>ROS</strong> Base <em>(recommended)</em>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install ros-melodic-ros-base
+</pre></div>
+</div>
+</li>
+<li><p>Install <strong>ROS</strong> Desktop <em>(alternative)</em>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install ros-melodic-desktop
+</pre></div>
+</div>
+</li>
+<li><p>Install <strong>ROS</strong> Desktop Full <em>(alternative)</em>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install ros-melodic-desktop-full
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="initialize-rosdep">
+<h3>Initialize Rosdep<a class="headerlink" href="#initialize-rosdep" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Initialize rosdep using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">rosdep</span> <span class="pre">init</span></code> command.</p></li>
+<li><p>Update rosdep using <code class="docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">update</span></code> command.</p></li>
+</ul>
+</div>
+<div class="section" id="environment-setup">
+<h3>Environment Setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>, add the following text on the bottom of the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">/</span><span class="n">opt</span><span class="o">/</span><span class="n">ros</span><span class="o">/</span><span class="n">melodic</span><span class="o">/</span><span class="n">setup</span><span class="o">.</span><span class="n">bash</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>if you are using <strong>Zsh</strong>, modify <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> instead of <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> and source <code class="docutils literal notranslate"><span class="pre">/opt/ros/melodic/setup.zsh</span></code> instead of <code class="docutils literal notranslate"><span class="pre">/opt/ros/melodic/setup.bash</span></code>.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="setup-dependencies-for-building-packages">
+<h3>Setup Dependencies for Building Packages<a class="headerlink" href="#setup-dependencies-for-building-packages" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install the following dependencies for building <strong>ROS</strong> packages.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install python-rosinstall python-rosinstall-generator python-wstool build-essential
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="setup_opencv.html" class="btn btn-neutral float-right" title="Setup OpenCV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ros2_setup.html" class="btn btn-neutral float-left" title="ROS 2 Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

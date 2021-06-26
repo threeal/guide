@@ -1,0 +1,375 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Setup OpenCV With CUDA &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Webots Setup" href="webots_setup.html" />
+    <link rel="prev" title="Setup OpenCV" href="setup_opencv.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Setup OpenCV With CUDA</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-requirements">Pre Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#build-process">Build Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-opencv-and-opencv-contrib-repository">Clone OpenCV and OpenCV_Contrib Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-opencv">Build OpenCV</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#post-install">Post Install</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#configure-opencv-library-path">Configure OpenCV Library Path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-opencv-python">Build OpenCV-python</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Setup OpenCV With CUDA</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/setup_opencv_with_cuda.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="setup-opencv-with-cuda">
+<h1>Setup OpenCV With CUDA<a class="headerlink" href="#setup-opencv-with-cuda" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-requirements">
+<h2>Pre Requirements<a class="headerlink" href="#pre-requirements" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>If <strong>OpenCV</strong> has been installed previously, remove it using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">purge</span> <span class="pre">libopencv*</span></code>.</p></li>
+<li><p>Install some dependancy as follow:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install cmake libavcodec-dev libavformat-dev libavutil-dev <span class="se">\</span>
+    libeigen3-dev libglew-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev <span class="se">\</span>
+    libgtk2.0-dev libgtk-3-dev libjpeg-dev libpng-dev libpostproc-dev <span class="se">\</span>
+    libswscale-dev libtbb-dev libtiff5-dev libv4l-dev libxvidcore-dev libx264-dev <span class="se">\</span>
+    python-dev python-numpy python-py python-pytest <span class="se">\</span>
+    python3-dev python3-numpy python3-py python3-pytest <span class="se">\</span>
+    pkg-config qt5-default zlib1g-dev
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="build-process">
+<h2>Build Process<a class="headerlink" href="#build-process" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clone-opencv-and-opencv-contrib-repository">
+<h3>Clone OpenCV and OpenCV_Contrib Repository<a class="headerlink" href="#clone-opencv-and-opencv-contrib-repository" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Clone this repository <code class="docutils literal notranslate"><span class="pre">https://github.com/opencv/opencv.git</span></code>.</p></li>
+<li><p>Clone this repository <code class="docutils literal notranslate"><span class="pre">https://github.com/opencv/opencv_contrib</span></code>.</p></li>
+<li><p>Change the branch to the most recent <strong>4.2</strong> version <em>(the last version used was <strong>4.2.0</strong>)</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="build-opencv">
+<h3>Build OpenCV<a class="headerlink" href="#build-opencv" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">build</span></code> directory inside <strong>OpenCV</strong> repository and <code class="docutils literal notranslate"><span class="pre">cd</span></code> to that directory.</p></li>
+<li><p>Create Makefiles with the following options:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ cmake -D <span class="nv">CMAKE_BUILD_TYPE</span><span class="o">=</span>RELEASE <span class="se">\</span>
+    -D <span class="nv">CMAKE_INSTALL_PREFIX</span><span class="o">=</span><span class="s2">&quot;/usr/local/&quot;</span> <span class="se">\</span>
+    -D <span class="nv">OPENCV_EXTRA_MODULES_PATH</span><span class="o">=</span>../../opencv_contrib/modules <span class="se">\</span>
+    -D <span class="nv">WITH_CUDA</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">CUDA_ARCH_BIN</span><span class="o">=</span><span class="si">${</span><span class="nv">ARCH_BIN</span><span class="si">}</span> <span class="se">\</span>
+    -D <span class="nv">CUDA_ARCH_PTX</span><span class="o">=</span><span class="s2">&quot;&quot;</span> <span class="se">\</span>
+    -D <span class="nv">ENABLE_FAST_MATH</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">CUDA_FAST_MATH</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">WITH_CUBLAS</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">WITH_LIBV4L</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">WITH_GSTREAMER</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">WITH_GSTREAMER_0_10</span><span class="o">=</span>OFF <span class="se">\</span>
+    -D <span class="nv">WITH_QT</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">WITH_OPENGL</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">WITH_OPENCL</span><span class="o">=</span>ON <span class="se">\</span>
+    -D <span class="nv">BUILD_opencv_python2</span><span class="o">=</span>OFF <span class="se">\</span>
+    -D <span class="nv">BUILD_opencv_python3</span><span class="o">=</span>OFF <span class="se">\</span>
+    <span class="nv">OPENCV_GENERATE_PKGCONFIG</span><span class="o">=</span>YES <span class="se">\</span>
+    ..
+</pre></div>
+</div>
+</li>
+<li><p>Build <strong>OpenCV</strong> with <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">-j$(nproc)</span></code> command.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there is a problem with <strong>OpenGL</strong> support, fix it with creating a new patch file which contain the following text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">diff</span> <span class="o">--</span><span class="n">git</span> <span class="n">a</span><span class="o">/</span><span class="n">cuda_gl_interop</span><span class="o">.</span><span class="n">h</span> <span class="n">b</span><span class="o">/</span><span class="n">cuda_gl_interop</span><span class="o">.</span><span class="n">h</span>
+<span class="n">index</span> <span class="mi">0</span><span class="n">f4aa17</span><span class="o">..</span><span class="n">e8c538c</span> <span class="mi">100644</span>
+<span class="o">---</span> <span class="n">a</span><span class="o">/</span><span class="n">cuda_gl_interop</span><span class="o">.</span><span class="n">h</span>
+<span class="o">+++</span> <span class="n">b</span><span class="o">/</span><span class="n">cuda_gl_interop</span><span class="o">.</span><span class="n">h</span>
+<span class="o">@@</span> <span class="o">-</span><span class="mi">59</span><span class="p">,</span><span class="mi">13</span> <span class="o">+</span><span class="mi">59</span><span class="p">,</span><span class="mi">13</span> <span class="o">@@</span>
+<span class="o">&gt;</span>
+ <span class="c1">#else /* __APPLE__ */</span>
+<span class="o">&gt;</span>
+<span class="o">-</span><span class="c1">#if defined(__arm__) || defined(__aarch64__)</span>
+<span class="o">-</span><span class="c1">#ifndef GL_VERSION</span>
+<span class="o">-</span><span class="c1">#error Please include the appropriate gl headers before including cuda_gl_interop.h</span>
+<span class="o">-</span><span class="c1">#endif</span>
+<span class="o">-</span><span class="c1">#else</span>
+<span class="o">+//</span><span class="c1">#if defined(__arm__) || defined(__aarch64__)</span>
+<span class="o">+//</span><span class="c1">#ifndef GL_VERSION</span>
+<span class="o">+//</span><span class="c1">#error Please include the appropriate gl headers before including cuda_gl_interop.h</span>
+<span class="o">+//</span><span class="c1">#endif</span>
+<span class="o">+//</span><span class="c1">#else</span>
+<span class="c1">#include &lt;GL/gl.h&gt;</span>
+<span class="o">-</span><span class="c1">#endif</span>
+<span class="o">+//</span><span class="c1">#endif</span>
+<span class="o">&gt;</span>
+ <span class="c1">#endif /* __APPLE__ */</span>
+</pre></div>
+</div>
+<p>And then patch <code class="docutils literal notranslate"><span class="pre">cuda_gl_interop.h</span></code> header inside <strong>CUDA</strong>’s header directory using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">patch</span> <span class="pre">-N</span> <span class="pre">&lt;header_file&gt;</span> <span class="pre">&lt;patch_file&gt;</span></code> command.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there is a problem with <strong>Eigen</strong> header, make sure that it has been installed.
+If it has been installed, check the include directory of <code class="docutils literal notranslate"><span class="pre">Eigen/</span></code>, <strong>OpenCV</strong> expects that it is placed in the root. If it is placed in another directory <em>(example in <code class="docutils literal notranslate"><span class="pre">eigen3/Eigen/</span></code>)</em>, create symbolic link of that place to <code class="docutils literal notranslate"><span class="pre">Eigen/</span></code> using <code class="docutils literal notranslate"><span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">&lt;source_directory&gt;</span> <span class="pre">&lt;target_directory&gt;</span></code> command.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="post-install">
+<h2>Post Install<a class="headerlink" href="#post-install" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="configure-opencv-library-path">
+<h3>Configure OpenCV Library Path<a class="headerlink" href="#configure-opencv-library-path" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Create new file <code class="docutils literal notranslate"><span class="pre">opencv.conf</span></code> inside <code class="docutils literal notranslate"><span class="pre">/etc/ld.so.conf.d/</span></code> and fill it with the following text:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span>
+</pre></div>
+</div>
+</li>
+<li><p>Reload library path using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">ldconfig</span></code> command.</p></li>
+</ul>
+</div>
+<div class="section" id="build-opencv-python">
+<h3>Build OpenCV-python<a class="headerlink" href="#build-opencv-python" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install <strong>OpenCV-python</strong> using <code class="docutils literal notranslate"><span class="pre">pip</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo pip install opencv-python
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="webots_setup.html" class="btn btn-neutral float-right" title="Webots Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="setup_opencv.html" class="btn btn-neutral float-left" title="Setup OpenCV" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

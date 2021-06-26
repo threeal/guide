@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Webots Setup &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="YOLO Setup" href="yolo_setup.html" />
+    <link rel="prev" title="Setup OpenCV With CUDA" href="setup_opencv_with_cuda.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Webots Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-using-apt">Installation Using APT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-requirements">Pre Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#verifying-graphics-driver-installation">Verifying Graphics Driver Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-apt-repository">Configure APT Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#post-install">Post Install</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-webots-with-linux-environment">Configure Webots with Linux Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-webots-home-path-to-environment-variable">Add Webots Home Path to Environment Variable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-webots-library-path">Configure Webots Library Path</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-webots-include-path">Configure Webots Include Path</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#installation-from-source">Installation from Source</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#clone-the-github-repository">Clone the Github Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-prerequisites-packages">Install Prerequisites Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-your-bash-profile">Setup Your Bash Profile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-webots">Build Webots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Webots Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/webots_setup.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="webots-setup">
+<h1>Webots Setup<a class="headerlink" href="#webots-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation-using-apt">
+<h2>Installation Using APT<a class="headerlink" href="#installation-using-apt" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="pre-requirements">
+<h3>Pre Requirements<a class="headerlink" href="#pre-requirements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="verifying-graphics-driver-installation">
+<h4>Verifying Graphics Driver Installation<a class="headerlink" href="#verifying-graphics-driver-installation" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>Make sure that <strong>Nvidia</strong> driver was already installed in the PC, for more information please refers <a class="reference external" href="https://cyberbotics.com/doc/guide/verifying-your-graphics-driver-installation">here</a>.</p></li>
+</ul>
+</div>
+<div class="section" id="configure-apt-repository">
+<h4>Configure APT Repository<a class="headerlink" href="#configure-apt-repository" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Add <strong>Cyber Robotics</strong>’s <strong>APT</strong> keys.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ curl -s -L https://www.cyberbotics.com/Cyberbotics.asc <span class="p">|</span> sudo apt-key add -
+</pre></div>
+</div>
+</li>
+<li><p>Add <strong>Cyber Robotics</strong>’s <strong>APT</strong> repository.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt-add-repository <span class="s1">&#39;deb https://www.cyberbotics.com/debian/ binary-amd64/&#39;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Update the <strong>APT</strong> repository using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">update</span></code> command.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install as usual using <code class="docutils literal notranslate"><span class="pre">apt</span> <span class="pre">install</span></code> command.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install webots
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Webots</strong> requires large amount of space <em>(around 2 GB)</em>, so the installation process will take a lot of time.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="post-install">
+<h3>Post Install<a class="headerlink" href="#post-install" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Run <strong>Webots</strong> from application launcher or from <code class="docutils literal notranslate"><span class="pre">webots</span></code> command.</p></li>
+<li><p>On the first start you will be asked to chose theme and try some example simulation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If there is a warning about unsupported graphics driver, make sure that graphics drivers already installed properly as in <a class="reference external" href="#Pre-Requirements">Pre Requirements</a> section. <em>(Although sometimes simulation could still be run without graphics driver installed)</em>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are new in <strong>Webots</strong> it is recommended to try the tutorial first in <a class="reference external" href="https://cyberbotics.com/doc/guide/tutorials">here</a>.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="configure-webots-with-linux-environment">
+<h3>Configure Webots with Linux Environment<a class="headerlink" href="#configure-webots-with-linux-environment" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For each new controller created, add a <code class="docutils literal notranslate"><span class="pre">WEBOTS_HOME</span></code> variable that contains path to the <strong>Webots</strong>’s controller in the controller’s <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> file.</p>
+</div>
+<div class="section" id="add-webots-home-path-to-environment-variable">
+<h4>Add Webots Home Path to Environment Variable<a class="headerlink" href="#add-webots-home-path-to-environment-variable" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>In your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file <em>(or <code class="docutils literal notranslate"><span class="pre">~/.zshrc</span></code> if using <strong>Zsh</strong>)</em>, add the following text in the bottom of the file to export WEBOTS_HOME environment variable that contains a path to <strong>Webots</strong> directory <em>(usually it is <code class="docutils literal notranslate"><span class="pre">/usr/local/webots</span></code>)</em>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">WEBOTS_HOME</span><span class="o">=</span>/usr/local/webots
+</pre></div>
+</div>
+</li>
+<li><p>Reload the environment with <code class="docutils literal notranslate"><span class="pre">source</span></code> command.</p></li>
+</ul>
+</div>
+<div class="section" id="configure-webots-library-path">
+<h4>Configure Webots Library Path<a class="headerlink" href="#configure-webots-library-path" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Create a symbolic link from some of <strong>Webots</strong>’s library to the default library path.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo ln -s <span class="nv">$WEBOTS_HOME</span>/lib/controller/libController.so /usr/local/lib/libWebotsController.so
+~$ sudo ln -s <span class="nv">$WEBOTS_HOME</span>/lib/controller/libCppController.so /usr/local/lib/libWebotsCppController.so
+~$ sudo ln -s <span class="nv">$WEBOTS_HOME</span>/lib/webots/libpng12.so.0 /usr/local/lib/libpng12.so.0
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="configure-webots-include-path">
+<h4>Configure Webots Include Path<a class="headerlink" href="#configure-webots-include-path" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p>Create a symbolic link from <strong>Webots</strong>’s include path to the default include path.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo ln -s <span class="nv">$WEBOTS_HOME</span>/include/controller/cpp/webots /usr/local/include/webots
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="installation-from-source">
+<h2>Installation from Source<a class="headerlink" href="#installation-from-source" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="clone-the-github-repository">
+<h3>Clone the Github Repository<a class="headerlink" href="#clone-the-github-repository" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Create the development directory in home directory and clone the repository.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ git config --global credential.helper store
+~$ git config --global user.email <span class="s2">&quot;you@example.com&quot;</span>
+~$ git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+~$ git config --global push.default simple
+~$ git clone --recurse-submodules -j8 https://github.com/cyberbotics/webots.git
+~$ <span class="nb">cd</span> webots
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="install-prerequisites-packages">
+<h3>Install Prerequisites Packages<a class="headerlink" href="#install-prerequisites-packages" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Install the <strong>Webots</strong> dependencies.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo scripts/install/linux_compilation_dependencies.sh
+~$ sudo scripts/install/linux_optional_compilation_dependencies.sh
+</pre></div>
+</div>
+</li>
+<li><p>Install the other required packages.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ sudo apt install libfreetype6-dev libglm-dev libusb-dev libssl-dev libzip-dev
+~$ git clone https://github.com/nothings/stb.git
+~$ sudo cp stb/stb_image.h /usr/local/include/
+~$ sudo cp stb/stb_image_write.h /usr/local/include/
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="setup-your-bash-profile">
+<h3>Setup Your Bash Profile<a class="headerlink" href="#setup-your-bash-profile" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Append the content of <code class="docutils literal notranslate"><span class="pre">scripts/install/bashrc.linux</span></code> to <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ cat scripts/install/bashrc.linux &gt;&gt; ~/.bashrc
+~$ <span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="build-webots">
+<h3>Build Webots<a class="headerlink" href="#build-webots" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Compile <strong>Webots</strong>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~$ make
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="yolo_setup.html" class="btn btn-neutral float-right" title="YOLO Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="setup_opencv_with_cuda.html" class="btn btn-neutral float-left" title="Setup OpenCV With CUDA" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

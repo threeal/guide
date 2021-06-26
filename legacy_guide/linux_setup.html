@@ -1,0 +1,403 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Linux Setup &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Properly Using Git" href="properly_using_git.html" />
+    <link rel="prev" title="Jetson TX2 Flash" href="jetson_tx2_flash.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Linux Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#enable-autostart-on-power-failure">Enable Autostart on Power Failure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linux-installation">Linux Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#downgrade-linux-kernel">Downgrade Linux Kernel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-date">Update date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fix-root-permission">Fix Root Permission</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setup-dhcp-server">Setup DHCP Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-setup">Library Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#additional-setup">Additional Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Linux Setup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/linux_setup.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="linux-setup">
+<h1>Linux Setup<a class="headerlink" href="#linux-setup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="enable-autostart-on-power-failure">
+<h2>Enable Autostart on Power Failure<a class="headerlink" href="#enable-autostart-on-power-failure" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enter Intel Visual BIOS (press <code class="docutils literal notranslate"><span class="pre">f2</span></code> when booting)</p></li>
+<li><p>Choose <code class="docutils literal notranslate"><span class="pre">Advanced</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">Power</span></code></p></li>
+<li><p>On <code class="docutils literal notranslate"><span class="pre">After</span> <span class="pre">Power</span> <span class="pre">Failure</span></code>, select <code class="docutils literal notranslate"><span class="pre">Power</span> <span class="pre">On</span></code></p></li>
+</ul>
+</div>
+<div class="section" id="linux-installation">
+<h2>Linux Installation<a class="headerlink" href="#linux-installation" title="Permalink to this headline">¶</a></h2>
+<p>Use Ubuntu <a class="reference external" href="http://old-releases.ubuntu.com/releases/bionic/ubuntu-18.04-desktop-amd64.iso">18.04.3 Desktop (64-bit)</a></p>
+</div>
+<div class="section" id="downgrade-linux-kernel">
+<h2>Downgrade Linux Kernel<a class="headerlink" href="#downgrade-linux-kernel" title="Permalink to this headline">¶</a></h2>
+<p>Install Ukuu</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo add-apt-repository ppa:teejee2008/ppa
+$ sudo apt-get update
+$ sudo apt-get install ukuu
+</pre></div>
+</div>
+<p>Install kernel <code class="docutils literal notranslate"><span class="pre">4.2.8</span></code></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ xhost +
+$ sudo ukuu --install v4.2.8-ckt13
+$ reboot now
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-date">
+<h2>Update date<a class="headerlink" href="#update-date" title="Permalink to this headline">¶</a></h2>
+<p>Update date from google.com (using internet)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo date -s <span class="s2">&quot;</span><span class="k">$(</span>wget -qSO- --max-redirect<span class="o">=</span><span class="m">0</span> google.com <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">|</span> grep Date: <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f5-8<span class="k">)</span><span class="s2">Z&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fix-root-permission">
+<h2>Fix Root Permission<a class="headerlink" href="#fix-root-permission" title="Permalink to this headline">¶</a></h2>
+<p>Add user to appropriate groups (dialout for serial, video for camera)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo usermod -aG dialout <span class="nv">$USER</span>
+$ sudo usermod -aG video <span class="nv">$USER</span>
+</pre></div>
+</div>
+<p>Increase real-time scheduling priority (for thread)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo bash -c <span class="s1">&#39;echo &quot;@&quot;&#39;</span><span class="nv">$USER</span><span class="s1">&#39;&quot; - rtprio 99&quot; &gt; /etc/security/limits.d/&#39;</span><span class="nv">$USER</span><span class="s1">&#39;-rtprio.conf&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-dhcp-server">
+<h2>Setup DHCP Server<a class="headerlink" href="#setup-dhcp-server" title="Permalink to this headline">¶</a></h2>
+<p>Install DHCP Server</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get install isc-dhcp-server net-tools
+$ sudo apt-get upgrade
+</pre></div>
+</div>
+<p>Find ethernet interface name (ex: eth0) using</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ ifconfig
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">/etc/default/isc-dhcp-server</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">INTERFACES</span><span class="o">=</span><span class="s2">&quot;eth0&quot;</span>
+</pre></div>
+</div>
+<p>Set robot ip as in <a class="reference external" href="https://gitlab.com/ICHIRO-ITS/readme/blob/master/COMMAND.md">here</a> (ex: ithaaro 192.168.123.1)
+In <code class="docutils literal notranslate"><span class="pre">/etc/dhcp/dhcpd.conf</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">subnet</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">123.0</span> <span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span> <span class="p">{</span>
+  <span class="nb">range</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">123.64</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">123.128</span><span class="p">;</span>
+  <span class="n">option</span> <span class="n">routers</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">123.1</span><span class="p">;</span>
+  <span class="n">option</span> <span class="n">broadcast</span><span class="o">-</span><span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">123.255</span><span class="p">;</span>
+  <span class="n">default</span><span class="o">-</span><span class="n">lease</span><span class="o">-</span><span class="n">time</span> <span class="mi">600</span><span class="p">;</span>
+  <span class="nb">max</span><span class="o">-</span><span class="n">lease</span><span class="o">-</span><span class="n">time</span> <span class="mi">7200</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In <code class="docutils literal notranslate"><span class="pre">/etc/network/interfaces</span></code> add</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">auto</span> <span class="n">eth0</span>
+<span class="n">iface</span> <span class="n">eth0</span> <span class="n">inet</span> <span class="n">static</span>
+<span class="n">address</span> <span class="mf">192.168</span><span class="o">.</span><span class="mf">123.7</span>
+<span class="n">netmask</span> <span class="mf">255.255</span><span class="o">.</span><span class="mf">255.0</span>
+</pre></div>
+</div>
+<p>Start dhcp server</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo service isc-dhcp-server start
+$ sudo systemctl restart isc-dhcp-server
+$ sudo ufw allow  <span class="m">67</span>/udp
+$ sudo ufw reload
+$ sudo service networking restart
+</pre></div>
+</div>
+</div>
+<div class="section" id="library-setup">
+<h2>Library Setup<a class="headerlink" href="#library-setup" title="Permalink to this headline">¶</a></h2>
+<p>Install ncurse (terminal interface library)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install libncurses5-dev
+</pre></div>
+</div>
+<p>Install yaml-cpp (yaml file parser), get source <a class="reference external" href="https://github.com/jbeder/yaml-cpp/archive/release-0.3.0.tar.gz">here</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> &lt;download_location&gt;
+$ tar -xvzf &lt;yaml_file&gt;.tar.gz
+$ <span class="nb">cd</span> &lt;yaml_folder&gt;
+$ mkdir build
+$ <span class="nb">cd</span> build
+$ cmake ..
+$ make -j4
+$ sudo make install
+</pre></div>
+</div>
+<p>Install eigen (linear algebra library), get source <a class="reference external" href="http://bitbucket.org/eigen/eigen/get/3.3.7.tar.bz2">here</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> &lt;download_location&gt;
+$ tar jxf &lt;eigen_file&gt;.tar.bz2
+$ <span class="nb">cd</span> &lt;eigen_folder&gt;
+$ mkdir build
+$ <span class="nb">cd</span> build
+$ cmake ..
+$ make -j4
+$ sudo make install
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-setup">
+<h2>Additional Setup<a class="headerlink" href="#additional-setup" title="Permalink to this headline">¶</a></h2>
+<p>Install vim (text editor)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install vim
+</pre></div>
+</div>
+<p>Install screen (terminal emulator)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install screen
+</pre></div>
+</div>
+<p>Install Visual Studio Code (Code Editor), get .deb file <a class="reference external" href="https://go.microsoft.com/fwlink/?LinkID=760868">here</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> &lt;download_location&gt;
+$ sudo dpkg -i ./&lt;file&gt;.deb
+</pre></div>
+</div>
+<p>Install nmap (IP Address Finder)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt-get install nmap
+</pre></div>
+</div>
+<p>Install neofetch (system info)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">cd</span> ~/Downloads
+$ git clone https://github.com/dylanaraps/neofetch
+$ <span class="nb">cd</span> neofetch
+$ sudo make install
+</pre></div>
+</div>
+<p>Install net-tools</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ sudo apt install net-tools
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="properly_using_git.html" class="btn btn-neutral float-right" title="Properly Using Git" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="jetson_tx2_flash.html" class="btn btn-neutral float-left" title="Jetson TX2 Flash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

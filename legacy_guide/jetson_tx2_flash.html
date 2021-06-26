@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Jetson TX2 Flash &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linux Setup" href="linux_setup.html" />
+    <link rel="prev" title="Setup Git" href="git_setup.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../documentation-guide/sphinx-guide.html">Create Documentations Using Sphinx</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="git_setup.html">Setup Git</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Jetson TX2 Flash</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#pre-requirements">Pre Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-the-host">Prepare the Host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-dependencies-in-the-host">Setup Dependencies in the Host</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-nvidia-sdk-manager">Setup NVIDIA SDK Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-nvidia-sdk-manager">Run NVIDIA SDK Manager</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-flash-options">Configure Flash Options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#development-environment">Development Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#details-and-license">Details and License</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flash-process">Flash Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#prepare-flash-component">Prepare Flash Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#manual-setup">Manual Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ubuntu-setup">Ubuntu Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sdk-components-install">SDK Components Install</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#post-flash">Post Flash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Jetson TX2 Flash</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/legacy_guide/jetson_tx2_flash.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="tex2jax_ignore mathjax_ignore section" id="jetson-tx2-flash">
+<h1>Jetson TX2 Flash<a class="headerlink" href="#jetson-tx2-flash" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pre-requirements">
+<h2>Pre Requirements<a class="headerlink" href="#pre-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>A <strong>Linux x86/x64</strong> host <em>(it is recommended to use <strong>Ubuntu 16.04/18.04</strong>)</em>.</p></li>
+<li><p>A <strong>Jetson TX2 Developer Kit</strong> <em>(connected to the host with <strong>USB Micro AB cable</strong>)</em>.</p></li>
+</ul>
+</div>
+<div class="section" id="prepare-the-host">
+<h2>Prepare the Host<a class="headerlink" href="#prepare-the-host" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-dependencies-in-the-host">
+<h3>Setup Dependencies in the Host<a class="headerlink" href="#setup-dependencies-in-the-host" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Install <strong>Python</strong> and <strong>XTERM</strong> using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">install</span> <span class="pre">python</span> <span class="pre">xterm</span></code>.</p></li>
+<li><p>If there is <strong>TLP</strong> installed, remove it using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">remove</span> <span class="pre">tlp</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="setup-nvidia-sdk-manager">
+<h3>Setup NVIDIA SDK Manager<a class="headerlink" href="#setup-nvidia-sdk-manager" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Download the <strong>NVIDIA SDK Manager</strong> from <a class="reference external" href="https://developer.nvidia.com/nvidia-sdk-manager">here</a>
+<em>(a <strong>NVIDIA Developer account</strong> is needed to download it)</em>.</p></li>
+<li><p>Install it with <code class="docutils literal notranslate"><span class="pre">dpkg</span> <span class="pre">-i</span> <span class="pre">&lt;deb_file&gt;</span></code> command. Or you can follow the <strong>Setting up</strong> instructions in the Download page.</p></li>
+</ul>
+</div>
+<div class="section" id="run-nvidia-sdk-manager">
+<h3>Run NVIDIA SDK Manager<a class="headerlink" href="#run-nvidia-sdk-manager" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Run <strong>NVIDIA SDK Manager</strong> with <code class="docutils literal notranslate"><span class="pre">sdkmanager</span></code> command or dirrectly from software launcher.</p></li>
+<li><p>Login with <strong>NVIDIA Developer account</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There is problem with <strong>NVIDIA SDK Manager</strong> resolution that doesn’t fit in <strong>1366x768</strong> or lower resolution <em>(the button and some bottom user interfaces are cropped in that resolution)</em>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Use the <strong>Tab</strong> button to scroll down the page  <em>(to display the bottom of truncated user interfaces)</em>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="configure-flash-options">
+<h2>Configure Flash Options<a class="headerlink" href="#configure-flash-options" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="development-environment">
+<h3>Development Environment<a class="headerlink" href="#development-environment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In <strong>Hardware Configuration</strong>, choose <strong>Jetson TX2 (P3310)</strong> for the Target Hardware.</p></li>
+<li><p>In <strong>Target Operating System</strong>, choose Linux JetPack with the most recent version
+<em>(the last version used was <strong>JetPack 4.3</strong>)</em>.</p></li>
+<li><p>Continue to the next step.</p></li>
+</ul>
+</div>
+<div class="section" id="details-and-license">
+<h3>Details and License<a class="headerlink" href="#details-and-license" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In <strong>Target Components</strong>, only choose <strong>Jetson OS</strong> and <strong>Jetson SDK Components</strong>.</p></li>
+<li><p>Accept the terms and conditions.</p></li>
+<li><p>Continue to the next step.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="flash-process">
+<h2>Flash Process<a class="headerlink" href="#flash-process" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prepare-flash-component">
+<h3>Prepare Flash Component<a class="headerlink" href="#prepare-flash-component" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Enter the <strong>superuser</strong> password.</p></li>
+<li><p>The <strong>NVIDIA SDK Manager</strong> will download required components and install it to the host.</p></li>
+<li><p>After the download is finished, you will be prompted to connect the host with the <strong>Jetson TX2</strong>.</p></li>
+<li><p>Choose <strong>Manual Setup</strong> for custom installation.</p></li>
+</ul>
+</div>
+<div class="section" id="manual-setup">
+<h3>Manual Setup<a class="headerlink" href="#manual-setup" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Boot the <strong>Jetson TX2</strong> in recovery mode by pressing the <strong>Reset button</strong> <em>(RES)</em> while holding the <strong>Recovery Force button</strong> <em>(REC)</em>.
+After that, hold the <strong>Recovery Force button</strong> <em>(REC)</em> for about 2 seconds.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Recovery mode is indicated by both LEDs next to the <strong>Recovery Force button</strong> <em>(REC)</em> are on and the connected display  is not showing anything.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure the <strong>Jetson TX2</strong> is connected to the host with <code class="docutils literal notranslate"><span class="pre">lsusb</span></code> command <em>(indicated as <strong>Nvidia Corp.</strong>)</em>.</p>
+</div>
+</li>
+<li><p>Click flash to continue.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In case of failure <em>(device not connected or haven’t set to recovery mode)</em>, reboot the <strong>Jetson TX2</strong> in recovery mode. Reboot the host if failure still happens.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="ubuntu-setup">
+<h3>Ubuntu Setup<a class="headerlink" href="#ubuntu-setup" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>Set the language <em>(default is <strong>English</strong>)</em>.</p></li>
+<li><p>Set the keyboard layout <em>(default is <strong>English (US)</strong>)</em>.</p></li>
+<li><p>Set the timezone <em>(default is <strong>Jakarta</strong>/GMT+7)</em>.</p></li>
+<li><p>Set the username <em>(default is <strong>ichiro</strong>)</em>.</p></li>
+<li><p>Set the hostname <em>(use robot name, in lowercase)</em>.</p></li>
+<li><p>Set the password.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is recommended to connect to the internet in this process.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="sdk-components-install">
+<h3>SDK Components Install<a class="headerlink" href="#sdk-components-install" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Input the IP address if <strong>Jetson TX2</strong> is using different IP address from the default <em>(default is <strong>192.168.55.1</strong>)</em>.</p></li>
+<li><p>Input the username and password of <strong>Jetson TX2</strong>.</p></li>
+<li><p>Click install to continue.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="post-flash">
+<h2>Post Flash<a class="headerlink" href="#post-flash" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The <strong>Jetson TX2</strong> comes with some unused programs that won’t be used for developing like <strong>LibreOffice</strong>, <strong>Thunderbird</strong>, <strong>Rhythmbox</strong>, and <strong>Shotwell</strong>. You may remove them using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">apt</span> <span class="pre">remove</span> <span class="pre">&lt;program&gt;</span></code>.</p></li>
+<li><p>Sometimes the clock is wrongly set. You may fix this manually using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">date</span> <span class="pre">-s</span> <span class="pre">&quot;&lt;DD&gt;</span> <span class="pre">&lt;MON&gt;</span> <span class="pre">&lt;YYYY&gt;</span> <span class="pre">&lt;HH&gt;:&lt;MM&gt;:&lt;SS&gt;&quot;</span></code> or automatically using <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">date</span> <span class="pre">-s</span> <span class="pre">&quot;$(wget</span> <span class="pre">-qSO-</span> <span class="pre">--max-redirect=0</span> <span class="pre">google.com</span> <span class="pre">2&gt;&amp;1</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">Date:</span> <span class="pre">|</span> <span class="pre">cut</span> <span class="pre">-d'</span> <span class="pre">'</span> <span class="pre">-f5-8)Z&quot;</span></code> <em>(require an internet access)</em>.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="linux_setup.html" class="btn btn-neutral float-right" title="Linux Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="git_setup.html" class="btn btn-neutral float-left" title="Setup Git" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

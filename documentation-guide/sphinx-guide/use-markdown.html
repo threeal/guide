@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Enable Markdown in Sphinx &mdash; ICHIRO ITS Guide  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Manage Debian Package Using APT" href="../../debian-package-guide/apt-guide.html" />
+    <link rel="prev" title="Use Read the Docs Theme in Sphinx" href="use-rtd-theme.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> ICHIRO ITS Guide
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Documentation Guide</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../sphinx-guide.html">Create Documentations Using Sphinx</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup-sphinx.html">Setup Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-documentation.html">Build Documentations Using Sphinx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="use-rtd-theme.html">Use Read the Docs Theme in Sphinx</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Enable Markdown in Sphinx</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#myst-installation">MyST Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-myst-in-a-sphinx-project">Configure MyST in a Sphinx Project</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Debian Package Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../debian-package-guide/apt-guide.html">Manage Debian Package Using APT</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Remote Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../remote-guide/vnc-guide.html">Remote Desktop Using VNC</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Python Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python-guide/python-guide.html">Write Programs using Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python-guide/pip-guide.html">Manage Python Packages Using pip</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Legacy Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/assign_static_usb_port.html">Assign a Static USB Port</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/cpp_coding_standard.html">C++ Coding Standard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/git_setup.html">Setup Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/jetson_tx2_flash.html">Jetson TX2 Flash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/linux_setup.html">Linux Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/properly_using_git.html">Properly Using Git</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/remote_command.html">Remote Command</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/remote_setup.html">Remote Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/ros2_setup.html">ROS 2 Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/ros_setup.html">ROS Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/setup_opencv.html">Setup OpenCV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/setup_opencv_with_cuda.html">Setup OpenCV With CUDA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/webots_setup.html">Webots Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/yolo_setup.html">YOLO Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/zsh_setup.html">Setup Zsh</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../legacy_guide/zsh_setup.html#setup-oh-my-zsh">Setup Oh My Zsh</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">ICHIRO ITS Guide</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../sphinx-guide.html">Create Documentations Using Sphinx</a> &raquo;</li>
+        
+      <li>Enable Markdown in Sphinx</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../../_sources/documentation-guide/sphinx-guide/use-markdown.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="enable-markdown-in-sphinx">
+<h1>Enable Markdown in Sphinx<a class="headerlink" href="#enable-markdown-in-sphinx" title="Permalink to this headline">¶</a></h1>
+<p>This section will explain a guide on enabling <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> in a <a class="reference internal" href="../sphinx-guide.html#sphinx-guide"><span class="std std-ref">Sphinx</span></a> project using <a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/index.html">MyST</a>.</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://myst-parser.readthedocs.io/en/latest/using/intro.html">Getting Started on MyST</a> on the official MyST documentation.</p></li>
+<li><p><a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/markdown.html">Use Markdown in Sphinx</a> on the official Sphinx documentation.</p></li>
+</ul>
+</div>
+<div class="section" id="myst-installation">
+<h2>MyST Installation<a class="headerlink" href="#myst-installation" title="Permalink to this headline">¶</a></h2>
+<p>MyST is available on <a class="reference internal" href="../../python-guide/pip-guide.html#pip-guide"><span class="std std-ref">pip</span></a> as <code class="code docutils literal notranslate"><span class="pre">myst-parser</span></code> package.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install myst-parser
+</pre></div>
+</div>
+</div>
+<div class="section" id="configure-myst-in-a-sphinx-project">
+<h2>Configure MyST in a Sphinx Project<a class="headerlink" href="#configure-myst-in-a-sphinx-project" title="Permalink to this headline">¶</a></h2>
+<p>Modify <code class="code docutils literal notranslate"><span class="pre">conf.py</span></code> of the project by adding <code class="code docutils literal notranslate"><span class="pre">myst-parser</span></code> in the <code class="code docutils literal notranslate"><span class="pre">extensions</span></code> list and <code class="code docutils literal notranslate"><span class="pre">'.md'</span></code> in the <code class="code docutils literal notranslate"><span class="pre">source_suffix</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sphinx_rtd_theme</span>
+
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="o">...</span>
+  <span class="s2">&quot;mystparser&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="n">source_suffix</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s1">&#39;.rst&#39;</span><span class="p">:</span> <span class="s1">&#39;restructuredtext&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;.md&#39;</span><span class="p">:</span> <span class="s1">&#39;markdown&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../../debian-package-guide/apt-guide.html" class="btn btn-neutral float-right" title="Manage Debian Package Using APT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="use-rtd-theme.html" class="btn btn-neutral float-left" title="Use Read the Docs Theme in Sphinx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019-2021, ICHIRO ITS.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
