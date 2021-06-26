@@ -16,6 +16,9 @@ jobs:
         docs-folder: "."
         build-command: "sphinx-build -b html . _build"
 
+    - name: Disable Jekyll
+      run: touch _build/.nojekyll
+
     - name: Deploy documentation
       uses: JamesIves/github-pages-deploy-action@4.1.0
       with:
